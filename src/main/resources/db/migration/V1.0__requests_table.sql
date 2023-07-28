@@ -1,6 +1,6 @@
 CREATE TABLE requests
 (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    id UUID PRIMARY KEY,
     currency CHAR(3),
     name VARCHAR(32),
     request_date TIMESTAMP,

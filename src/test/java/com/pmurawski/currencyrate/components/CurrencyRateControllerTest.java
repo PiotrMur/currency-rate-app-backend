@@ -88,7 +88,7 @@ class CurrencyRateControllerTest {
 
     private static ValueRequestDTO createSampleRequest(Clock fixedClock) {
         ValueRequestDTO expectedResult = new ValueRequestDTO("EUR", "Kuba Guzik", 4.345);
-        expectedResult.setDate(LocalDateTime.now(fixedClock));
+        expectedResult.setRequestDate(LocalDateTime.now(fixedClock));
         return expectedResult;
     }
 }

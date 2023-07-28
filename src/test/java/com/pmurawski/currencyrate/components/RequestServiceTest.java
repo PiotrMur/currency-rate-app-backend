@@ -32,7 +32,7 @@ class RequestServiceTest {
         //then
         verify(jdbcTemplate).update(
                 "INSERT INTO requests (currency, name, request_date, value_rate) VALUES (?,?,?,?)",
-                entity.getCurrency(), entity.getName(), entity.getDate(), entity.getValue()
+                entity.getCurrency(), entity.getName(), entity.getRequestDate(), entity.getValueRate()
         );
     }
 

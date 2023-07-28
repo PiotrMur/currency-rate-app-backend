@@ -1,21 +1,32 @@
 package com.pmurawski.currencyrate.components;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class ValueRequestDTO {
+    private UUID id;
     private String currency;
     private String name;
-    private LocalDateTime date;
-    private Double value;
+    private LocalDateTime requestDate;
+    private Double valueRate;
 
     public ValueRequestDTO() {
     }
 
     public ValueRequestDTO(String currency, String name, Double value) {
+        this.id = UUID.randomUUID();
         this.currency = currency;
         this.name = name;
-        this.date = LocalDateTime.now();
-        this.value = value;
+        this.requestDate = LocalDateTime.now();
+        this.valueRate = value;
+    }
+
+    public UUID getId(){
+        return id;
+    }
+
+    public void setId(UUID id){
+        this.id = id;
     }
 
     public String getCurrency() {
@@ -34,19 +45,19 @@ public class ValueRequestDTO {
         this.name = name;
     }
 
-    public LocalDateTime getDate() {
-        return date;
+    public LocalDateTime getRequestDate() {
+        return requestDate;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setRequestDate(LocalDateTime requestDate) {
+        this.requestDate = requestDate;
     }
 
-    public Double getValue() {
-        return value;
+    public Double getValueRate() {
+        return valueRate;
     }
 
-    public void setValue(Double value) {
-        this.value = value;
+    public void setValueRate(Double valueRate) {
+        this.valueRate = valueRate;
     }
 }
