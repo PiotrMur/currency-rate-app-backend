@@ -1,2 +1,4 @@
-package com.pmurawski.currencyrate.components;public record ResponseDTO() {
-}
+package com.pmurawski.currencyrate.components;
+
+public record ResponseDTO(
+        Double value) {}

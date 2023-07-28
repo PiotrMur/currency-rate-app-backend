@@ -2,16 +2,16 @@ package com.pmurawski.currencyrate.components;
 
 import java.time.LocalDateTime;
 
-public class ValueRequestEntity {
+public class ValueRequestDTO {
     private String currency;
     private String name;
     private LocalDateTime date;
     private Double value;
 
-    public ValueRequestEntity() {
+    public ValueRequestDTO() {
     }
 
-    public ValueRequestEntity(String currency, String name, Double value) {
+    public ValueRequestDTO(String currency, String name, Double value) {
         this.currency = currency;
         this.name = name;
         this.date = LocalDateTime.now();
