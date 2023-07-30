@@ -1,7 +1,10 @@
-package com.pmurawski.currencyrate.components;
+package com.pmurawski.currencyrate.components.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pmurawski.currencyrate.components.rates.RatesCollection;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -45,7 +48,9 @@ public class CurrencyRateService {
         }
     }
 
-    private List<RatesCollection> getJson(URL url) throws IOException {
+    @Cacheable("currencies")
+    @CacheEvict(value = "currencies", allEntries = true)
+    public List<RatesCollection> getJson(URL url) throws IOException {
         return objectMapper.readValue(url, new TypeReference<>() {
         });
     }

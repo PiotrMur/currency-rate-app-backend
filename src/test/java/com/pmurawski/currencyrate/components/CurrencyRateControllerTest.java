@@ -1,5 +1,8 @@
 package com.pmurawski.currencyrate.components;
 
+import com.pmurawski.currencyrate.components.dtos.ValueRequestDTO;
+import com.pmurawski.currencyrate.components.service.CurrencyRateService;
+import com.pmurawski.currencyrate.components.service.RequestDAO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;

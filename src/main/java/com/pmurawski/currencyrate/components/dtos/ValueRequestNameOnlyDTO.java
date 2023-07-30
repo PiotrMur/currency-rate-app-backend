@@ -1,9 +1,9 @@
-package com.pmurawski.currencyrate.components;
+package com.pmurawski.currencyrate.components.dtos;
 
-public class ValueRequestNameOnly {
+public class ValueRequestNameOnlyDTO {
     private String name;
 
-    public ValueRequestNameOnly(String name) {
+    public ValueRequestNameOnlyDTO(String name) {
         this.name = name;
     }
 

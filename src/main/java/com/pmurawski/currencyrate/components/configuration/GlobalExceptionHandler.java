@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components;
+package com.pmurawski.currencyrate.components.configuration;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,5 +1,11 @@
-package com.pmurawski.currencyrate.components;
+package com.pmurawski.currencyrate.components.controller;
 
+import com.pmurawski.currencyrate.components.dtos.RequestDTO;
+import com.pmurawski.currencyrate.components.dtos.ResponseDTO;
+import com.pmurawski.currencyrate.components.dtos.ValueRequestDTO;
+import com.pmurawski.currencyrate.components.dtos.ValueRequestNameOnlyDTO;
+import com.pmurawski.currencyrate.components.service.CurrencyRateService;
+import com.pmurawski.currencyrate.components.service.RequestDAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,7 +52,7 @@ public class CurrencyRateController {
 
     @PatchMapping("/update-request/{requestId}")
     @ResponseStatus(HttpStatus.OK)
-    public void updateName(@RequestBody ValueRequestNameOnly nameUpdate, @PathVariable("requestId") UUID requestId) {
+    public void updateName(@RequestBody ValueRequestNameOnlyDTO nameUpdate, @PathVariable("requestId") UUID requestId) {
         requestDAO.updateName(nameUpdate, requestId);
     }
 

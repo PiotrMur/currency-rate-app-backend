@@ -1,5 +1,7 @@
-package com.pmurawski.currencyrate.components;
+package com.pmurawski.currencyrate.components.service;
 
+import com.pmurawski.currencyrate.components.dtos.ValueRequestDTO;
+import com.pmurawski.currencyrate.components.dtos.ValueRequestNameOnlyDTO;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -84,7 +86,7 @@ public class RequestDAO {
         }
     }
 
-    public void updateName(ValueRequestNameOnly nameUpdate, UUID requestId) {
+    public void updateName(ValueRequestNameOnlyDTO nameUpdate, UUID requestId) {
         if (nameUpdate.getName() == null || requestId == null) {
             throw new IllegalArgumentException("CName or request id cannot be null");
         }

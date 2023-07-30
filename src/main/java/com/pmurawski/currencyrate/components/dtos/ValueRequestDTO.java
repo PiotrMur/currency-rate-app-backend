@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components;
+package com.pmurawski.currencyrate.components.dtos;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
