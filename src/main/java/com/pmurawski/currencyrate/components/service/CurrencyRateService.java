@@ -16,12 +16,12 @@ import java.util.List;
 public class CurrencyRateService {
     private static final String NBP_CURRENCY_RATES_URL = "http://api.nbp.pl/api/exchangerates/tables/A?format=json";
     private final ObjectMapper objectMapper;
-    private final RequestDAO requestDAO;
+    private final CurrencyRateEventPublisher publisher;
 
 
-    public CurrencyRateService(RequestDAO requestDAO, ObjectMapper objectMapper) {
-        this.requestDAO = requestDAO;
+    public CurrencyRateService(ObjectMapper objectMapper, CurrencyRateEventPublisher publisher) {
         this.objectMapper = objectMapper;
+        this.publisher = publisher;
     }
 
     public Double fetchCurrencyRateForCurrencyCode(String currencyCode, String name) {
@@ -29,7 +29,7 @@ public class CurrencyRateService {
         try {
             List<RatesCollection> listOfRateCollection = getJson(createUrl());
             double valueForCurrencyCode = getMidValueForCurrencyCode(listOfRateCollection.get(0), currencyCode);
-            requestDAO.saveCurrencyValueRequest(currencyCode, name, valueForCurrencyCode);
+            publisher.publish(currencyCode, name, valueForCurrencyCode);
             return valueForCurrencyCode;
         } catch (IOException e) {
             throw new CurrencyRateProcessingException("Error occurred while fetching currency rates.", e);

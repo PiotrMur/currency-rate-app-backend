@@ -29,7 +29,7 @@ class RequestServiceTest {
         ValueRequestDTO entity = new ValueRequestDTO(currencyCode, name, value);
 
         //when
-        requestDAO.saveCurrencyValueRequest(currencyCode, name, value);
+        requestDAO.publish(currencyCode, name, value);
 
         //then
         verify(jdbcTemplate).update(

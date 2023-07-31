@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class RequestDAO {
+public class RequestDAO implements CurrencyRateEventPublisher {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -54,9 +54,10 @@ public class RequestDAO {
     }
 
     @Transactional
-    public void saveCurrencyValueRequest(String currencyCode, String name, Double value) {
-        if (currencyCode == null || name == null || value == null) {
-            throw new IllegalArgumentException("Currency code, name or value cannot be null");
+    @Override
+    public void publish(String currencyCode, String name, double value) {
+        if (currencyCode == null || name == null || value < 0) {
+            throw new IllegalArgumentException("Currency code and name cannot be null and value cannot be less than 0");
         }
         ValueRequestDTO entity = new ValueRequestDTO(currencyCode, name, value);
         saveEntityToDatabase(entity);
@@ -68,7 +69,7 @@ public class RequestDAO {
         }
         String sql = "INSERT INTO requests (id, currency, name, request_date, value_rate) VALUES (?,?,?,?,?)";
         try {
-            jdbcTemplate.update(sql,entity.getId(), entity.getCurrency(), entity.getName(), entity.getRequestDate(), entity.getValueRate());
+            jdbcTemplate.update(sql, entity.getId(), entity.getCurrency(), entity.getName(), entity.getRequestDate(), entity.getValueRate());
         } catch (DataAccessException e) {
             throw new RuntimeException("Failed to update request", e);
         }
