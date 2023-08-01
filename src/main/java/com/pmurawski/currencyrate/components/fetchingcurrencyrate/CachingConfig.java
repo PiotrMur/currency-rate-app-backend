@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components.cache;
+package com.pmurawski.currencyrate.components.fetchingcurrencyrate;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;

@@ -1,7 +1,6 @@
-package com.pmurawski.currencyrate.components.service;
+package com.pmurawski.currencyrate.components.dbpersistance;
 
-import com.pmurawski.currencyrate.components.dtos.ValueRequestDTO;
-import com.pmurawski.currencyrate.components.dtos.ValueRequestNameOnlyDTO;
+import com.pmurawski.currencyrate.components.fetchingcurrencyrate.CurrencyRateEventPublisher;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

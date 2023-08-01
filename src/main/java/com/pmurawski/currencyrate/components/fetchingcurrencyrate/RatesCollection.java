@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components.rates;
+package com.pmurawski.currencyrate.components.fetchingcurrencyrate;
 
 import java.util.List;
 

@@ -1,8 +1,7 @@
-package com.pmurawski.currencyrate.components.service;
+package com.pmurawski.currencyrate.components.fetchingcurrencyrate;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pmurawski.currencyrate.components.rates.RatesCollection;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;

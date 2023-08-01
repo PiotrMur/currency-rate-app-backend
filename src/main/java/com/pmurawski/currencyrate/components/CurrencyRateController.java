@@ -1,11 +1,11 @@
-package com.pmurawski.currencyrate.components.controller;
+package com.pmurawski.currencyrate.components;
 
-import com.pmurawski.currencyrate.components.dtos.RequestDTO;
-import com.pmurawski.currencyrate.components.dtos.ResponseDTO;
-import com.pmurawski.currencyrate.components.dtos.ValueRequestDTO;
-import com.pmurawski.currencyrate.components.dtos.ValueRequestNameOnlyDTO;
-import com.pmurawski.currencyrate.components.service.CurrencyRateService;
-import com.pmurawski.currencyrate.components.service.RequestDAO;
+import com.pmurawski.currencyrate.components.dbpersistance.RequestDAO;
+import com.pmurawski.currencyrate.components.dbpersistance.ValueRequestDTO;
+import com.pmurawski.currencyrate.components.dbpersistance.ValueRequestNameOnlyDTO;
+import com.pmurawski.currencyrate.components.fetchingcurrencyrate.CurrencyRateService;
+import com.pmurawski.currencyrate.components.fetchingcurrencyrate.RequestDTO;
+import com.pmurawski.currencyrate.components.fetchingcurrencyrate.ResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components.rates;
+package com.pmurawski.currencyrate.components.fetchingcurrencyrate;
 
 public class Rate {
     private String code;
