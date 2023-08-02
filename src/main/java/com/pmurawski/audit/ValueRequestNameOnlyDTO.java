@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components.dbpersistance;
+package com.pmurawski.audit;
 
 public class ValueRequestNameOnlyDTO {
     private String name;

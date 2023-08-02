@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components.fetchingcurrencyrate;
+package com.pmurawski.currencyrate;
 
 public interface CurrencyRateEventPublisher {
     void publish(String currencyCode, String name, double valueForCurrencyCode);

@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components.dbpersistance;
+package com.pmurawski.audit;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

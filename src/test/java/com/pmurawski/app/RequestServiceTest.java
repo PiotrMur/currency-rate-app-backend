@@ -1,7 +1,7 @@
-package com.pmurawski.currencyrate.components;
+package com.pmurawski.app;
 
-import com.pmurawski.currencyrate.components.dbpersistance.RequestDAO;
-import com.pmurawski.currencyrate.components.dbpersistance.ValueRequestDTO;
+import com.pmurawski.audit.RequestDAO;
+import com.pmurawski.audit.ValueRequestDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

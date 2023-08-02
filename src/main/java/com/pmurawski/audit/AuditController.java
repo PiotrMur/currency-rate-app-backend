@@ -1,11 +1,8 @@
-package com.pmurawski.currencyrate.components;
+package com.pmurawski.audit;
 
-import com.pmurawski.currencyrate.components.dbpersistance.RequestDAO;
-import com.pmurawski.currencyrate.components.dbpersistance.ValueRequestDTO;
-import com.pmurawski.currencyrate.components.dbpersistance.ValueRequestNameOnlyDTO;
-import com.pmurawski.currencyrate.components.fetchingcurrencyrate.CurrencyRateService;
-import com.pmurawski.currencyrate.components.fetchingcurrencyrate.RequestDTO;
-import com.pmurawski.currencyrate.components.fetchingcurrencyrate.ResponseDTO;
+import com.pmurawski.currencyrate.CurrencyRateRequest;
+import com.pmurawski.currencyrate.CurrencyRateResponse;
+import com.pmurawski.currencyrate.CurrencyRateService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,21 +12,12 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/currencies")
 @CrossOrigin(origins = "http://localhost:4200/")
-public class CurrencyRateController {
+public class AuditController {
 
-    private final CurrencyRateService currencyRateService;
     private final RequestDAO requestDAO;
 
-    public CurrencyRateController(CurrencyRateService currencyRateService, RequestDAO requestDAO) {
-        this.currencyRateService = currencyRateService;
+    public AuditController(RequestDAO requestDAO) {
         this.requestDAO = requestDAO;
-    }
-
-    @PostMapping("/get-current-currency-value-command")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseDTO requestCurrencyRate(@RequestBody RequestDTO requestDTO) {
-        Double currencyRate = currencyRateService.fetchCurrencyRateForCurrencyCode(requestDTO.currency(), requestDTO.name());
-        return new ResponseDTO(currencyRate);
     }
 
     @GetMapping("/requests")

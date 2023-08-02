@@ -1,6 +1,6 @@
-package com.pmurawski.currencyrate.components.dbpersistance;
+package com.pmurawski.audit;
 
-import com.pmurawski.currencyrate.components.fetchingcurrencyrate.CurrencyRateEventPublisher;
+import com.pmurawski.currencyrate.CurrencyRateEventPublisher;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

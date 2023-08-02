@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components.fetchingcurrencyrate;
+package com.pmurawski.app;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.scheduling.annotation.Scheduled;

@@ -1,4 +1,4 @@
-package com.pmurawski.currencyrate.components.fetchingcurrencyrate;
+package com.pmurawski.currencyrate;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,7 +27,7 @@ public class CurrencyRateService {
         currencyCode = formatCurrencyCodeToUpperCase(currencyCode);
         try {
             List<RatesCollection> listOfRateCollection = getJson(createUrl());
-            double valueForCurrencyCode = getMidValueForCurrencyCode(listOfRateCollection.get(0), currencyCode);
+            double valueForCurrencyCode = findRateForCurrencyCode(listOfRateCollection.get(0), currencyCode);
             publisher.publish(currencyCode, name, valueForCurrencyCode);
             return valueForCurrencyCode;
         } catch (IOException e) {
@@ -54,8 +54,8 @@ public class CurrencyRateService {
         });
     }
 
-    private double getMidValueForCurrencyCode(RatesCollection ratesCollection, String code) {
-        return ratesCollection.getRates().stream()
+    private double findRateForCurrencyCode(RatesCollection ratesCollection, String code) {
+        return ratesCollection.rates().stream()
                 .filter(rate -> rate.getCode().equals(code))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("This code [" + code + "] does not exists"))
